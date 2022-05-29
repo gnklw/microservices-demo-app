@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/users_roles?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
+    username:
+    password:
+
+  sql:
+    init:
+      mode: always
+  jpa:
+    # Choose either MySQL 8 or MySQL 5 below
+    # For MySQL 8
+    #database-platform: org.hibernate.dialect.MySQL8Dialect
+    #For MySQL 5
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+  #Cloudinary Properties
+  #cloudinary:
+  #api-key:
+  #api-secret:
+  #cloud-name:
+  application:
+    name: auth-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka
+server:
+  port: 9000
+
